@@ -1,0 +1,16 @@
+
+<div class="flex-container">
+  <div *ngFor="let p of playlistLog;let i = index" >
+      <div data-target='#carousel-custom' [attr.data-slide-to]="i" ngClass="i == 0 ? 'active' : ''" class='active'><img [src]='p.poster' alt='' (click)="changetheViedo(p.trailer)" />
+      </div>
+      <div class="moviename">{{p.name | customeUpperCase}}</div>
+  </div>
+</div>
+<br/>
+
+
+
+
+<br/>
+  <toaster-container></toaster-container>
+<br/>

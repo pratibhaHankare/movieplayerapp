@@ -1,0 +1,77 @@
+#carousel-example-generic {
+    margin: 20px auto;
+    width: 41%;
+    background-color:black;
+    color:white;
+    height: 75%;
+}
+
+#carousel-custom {
+    margin: 20px auto;
+    width: 500px;
+   
+}
+
+#carousel-custom .carousel-outer {
+    position: relative;
+    padding-top: 4%;
+}
+.resizing{
+    padding-top: 2%;
+    padding-right: 2%;
+    padding-left: 2%;
+}
+
+.ytp-title-enable-channel-logo .ytp-title {
+    min-height: 52px;
+    background-color: black !important;
+}
+
+@media only screen and (min-width: 960px) {
+/* styles for browsers larger than 960px; */
+
+ }
+@media only screen and (min-width: 1440px) {
+/* styles for browsers larger than 1440px; */
+#carousel-example-generic 
+    {
+        width: 50%;
+    }
+}
+@media only screen and (min-width: 2000px) {
+/* for sumo sized (mac) screens */
+#carousel-example-generic 
+    {
+        width: 50%;
+    }
+}
+@media only screen and (max-device-width: 480px) {
+/* styles for mobile browsers smaller than 480px; (iPhone) */
+#carousel-example-generic 
+    {
+        width: 120%;
+    }
+}
+@media only screen and (device-width: 768px) {
+/* default iPad screens */
+     #carousel-example-generic 
+    {
+        width: 108%;
+    }
+}
+/* different techniques for iPad screening */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+/* For portrait layouts only */
+    #carousel-example-generic 
+    {
+        width: 113%;
+    }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+/* For landscape layouts only */
+     #carousel-example-generic 
+    {
+        width: 171%;
+    }
+}

@@ -1,0 +1,27 @@
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: grey;
+  }
+  
+  .flex-container > div {
+    background-color:grey;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 20px;
+    
+  }
+  img{
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+  }
+  .moviename{
+    font-size: 12px!important;
+    color:white;
+    padding-top:1%;
+    cursor: pointer;
+  }
+
+

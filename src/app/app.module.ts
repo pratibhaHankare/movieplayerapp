@@ -1,16 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-
+import { ViedoplayerComponent } from './viedoplayer/viedoplayer.component';
+import { PlaylistComponent } from './playlist/playlist.component';
+import { MovieplayerService } from './service/movieplayer.service';
+import { mpInterceptor } from '../app/service/mpInterceptor'
+import { HttpModule } from '@angular/http';
+import { CustomeUpperCasePipe } from './service/custome-upper-case.pipe';
+import {ToasterModule, ToasterService} from 'angular2-toaster';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ViedoplayerComponent,
+    PlaylistComponent,
+    CustomeUpperCasePipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    HttpModule,
+    ToasterModule.forRoot()
   ],
-  providers: [],
+  providers: [MovieplayerService
+    // {provide:HTTP_INTERCEPTORS, useClass:mpInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
