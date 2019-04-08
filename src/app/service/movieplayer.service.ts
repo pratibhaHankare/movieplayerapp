@@ -11,14 +11,13 @@ import { tap } from 'rxjs/operators';
 })
 
 export class MovieplayerService {
-
-  constructor(private _http:Http) { }
+private endpoint:any='https://valuefy-assignment-x.herokuapp.com/api/getVideos';
+  constructor(private _http:Http,private http:HttpClient) { }
 
     // getting all the list of playlist
-    getAllViedos(): Observable<Playlist[]> {
-      debugger;
-      return this._http.get('assets/playlist.json')
-        .pipe(map(res => res.json()));
+    getAllViedos(){
+      return this.http.get(this.endpoint);
+        // .pipe(map(res => res.json()));
     }
 
      

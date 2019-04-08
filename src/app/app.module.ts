@@ -11,6 +11,8 @@ import { mpInterceptor } from '../app/service/mpInterceptor'
 import { HttpModule } from '@angular/http';
 import { CustomeUpperCasePipe } from './service/custome-upper-case.pipe';
 import {ToasterModule, ToasterService} from 'angular2-toaster';
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
+import { OwlModule } from 'ngx-owl-carousel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,10 +24,12 @@ import {ToasterModule, ToasterService} from 'angular2-toaster';
     BrowserModule,
     HttpClientModule,
     HttpModule,
-    ToasterModule.forRoot()
+    ToasterModule.forRoot(),
+    Ng2CarouselamosModule,
+    OwlModule
   ],
-  providers: [MovieplayerService
-    // {provide:HTTP_INTERCEPTORS, useClass:mpInterceptor, multi:true}
+  providers: [MovieplayerService,
+    {provide:HTTP_INTERCEPTORS, useClass:mpInterceptor, multi:true}
   ],
   bootstrap: [AppComponent]
 })

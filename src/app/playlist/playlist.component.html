@@ -1,16 +1,22 @@
 
-<div class="flex-container">
-  <div *ngFor="let p of playlistLog;let i = index" >
-      <div data-target='#carousel-custom' [attr.data-slide-to]="i" ngClass="i == 0 ? 'active' : ''" class='active'><img [src]='p.poster' alt='' (click)="changetheViedo(p.trailer)" />
-      </div>
-      <div class="moviename">{{p.name | customeUpperCase}}</div>
+
+<div class="owl-carousel-holder">
+  <div class="carousel-section">
+    <owl-carousel
+      [options]="myCarouselOptions"
+      [items]="playlistLog">
+      <!-- <div class="flex-container"> -->
+        <div  class="item" *ngFor="let p of playlistLog;let i = index" >
+          <img class="thumbnail-image" src={{p.poster}} alt='' (click)="changetheViedo(p.trailer)" />
+          <div class="moviename">{{p.name | customeUpperCase}}</div>
+        </div>
+      <!-- </div> -->
+    </owl-carousel>
   </div>
 </div>
 <br/>
-
-
-
-
+<br/>
+<br/>
 <br/>
   <toaster-container></toaster-container>
 <br/>
