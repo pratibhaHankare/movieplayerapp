@@ -21,19 +21,6 @@ export class mpInterceptor  implements HttpInterceptor{
                 Source: `application/json`
               }            
         });
-        debugger;
-        // return next.handle(request).pipe(tap(
-        //     (event:any) => {},
-        //     (error:any)=>{
-        //         if(error instanceof HttpErrorResponse)
-        //         {
-        //             if(error.status == 501){
-        //                 //complex error handling over here
-        //                 console.error(error);
-        //             }
-        //         }
-        //     }
-        // ));
 
         return next.handle(request).pipe(tap(
             (err: any) => {
@@ -46,21 +33,5 @@ export class mpInterceptor  implements HttpInterceptor{
               }
             }
           ));
-
-        // return next.handle(request).do((event: HttpEvent<any>) => {
-        //     if (event instanceof HttpResponse) {
-        //       // do stuff with response if you want
-        //       console.log("success");
-        //     }
-        //   }, (err: any) => {
-        //     if (err instanceof HttpErrorResponse) {
-        //       if (err.status === 401) {
-        //         // redirect to the login route
-        //         // or show a modal
-        //         console.log(err);
-        //       }
-        //     }
-        //   });
-
     }    
 }
