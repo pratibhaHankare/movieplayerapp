@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit, ViewChild } from '@angular/core';
 import {MovieplayerService} from '../service/movieplayer.service';
-import { Playlist } from './../service/playlist';
-import { Observable, from } from 'rxjs';
-import { DomSanitizer } from '@angular/platform-browser';
 import {ToasterMsgService} from '../service/toaster-msg.service';
 import { HttpClient } from '@angular/common/http';
+
+
 @Component({
   selector: 'app-viedoplayer',
   templateUrl: './viedoplayer.component.html',
@@ -15,7 +14,14 @@ export class ViedoplayerComponent implements OnInit {
 public playLists;
 currentUrl:any;
 errormsg:any
-  constructor( private service:MovieplayerService,public sanitizer: DomSanitizer,public toast:ToasterMsgService,public http: HttpClient) { }
+
+  constructor( private service:MovieplayerService,public toast:ToasterMsgService,public http: HttpClient) { 
+    this.service.event.subscribe((data)=>{
+      debugger;
+          this.currentUrl=data;
+    });
+
+  }
 
   ngOnInit() {
     // normal call using Http
@@ -36,25 +42,16 @@ errormsg:any
     this.service.getAllViedos()
     .subscribe(
       data => {
-        // console.log(data);
         this.playLists=data;
         this.currentUrl=this.playLists[0].trailer;
+
       },
       err =>{
-        console.log(err)
         if(err.status == 404){
           this.errormsg=err.statusText;
           this.toast.showMessage(this.errormsg,0);
         }
       } 
     );
-
-
-   
   }
-  handleActualSort(url){
-        // console.log(url)
-        this.currentUrl=url;
-  }
-
 }

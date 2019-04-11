@@ -13,12 +13,14 @@ import { CustomeUpperCasePipe } from './service/custome-upper-case.pipe';
 import {ToasterModule, ToasterService} from 'angular2-toaster';
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { OwlModule } from 'ngx-owl-carousel';
+import { YoutubeUrlPipe } from './service/youtube-url.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     ViedoplayerComponent,
     PlaylistComponent,
-    CustomeUpperCasePipe
+    CustomeUpperCasePipe,
+    YoutubeUrlPipe
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,15 @@
 #carousel-example-generic {
     margin: 20px auto;
     width: 41%;
-    background-color:black;
+    background-color:gray;
     color:white;
-    height: 75%;
+    height: 80%;
 }
-
+.bgColor{
+    background-color: black !important;
+    padding-left:2%;
+    /* padding-right:1%; */
+}
 #carousel-custom {
     margin: 20px auto;
     width: 500px;

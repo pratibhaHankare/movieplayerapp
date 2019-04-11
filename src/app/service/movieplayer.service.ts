@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders, HttpResponse} from '@angular/common/http';
 import { Http , Response, Headers } from '@angular/http';
-import { Observable } from 'rxjs';
-import { Playlist } from '../service/playlist';
-import { map } from "rxjs/operators";
-import { tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +9,21 @@ import { tap } from 'rxjs/operators';
 
 export class MovieplayerService {
 private endpoint:any='https://valuefy-assignment-x.herokuapp.com/api/getVideos';
-  constructor(private _http:Http,private http:HttpClient) { }
+
+public playlistLog=new Subject<string>();
+public event = this.playlistLog.asObservable();
+
+
+  constructor(private _http:Http,private http:HttpClient) {}
 
     // getting all the list of playlist
     getAllViedos(){
       return this.http.get(this.endpoint);
-        // .pipe(map(res => res.json()));
+    }
+
+    public changeUrl(data:any){
+          // debugger;
+          this.playlistLog.next(data);
     }
 
      

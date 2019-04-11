@@ -8,9 +8,9 @@ html,body{
     height: 480px;
 }
 
-.owl-nav{
+.owl-nav {
     position: absolute;
-    top: 59%;
+    top: 87% !important;
     width: 100%;
 }
 
@@ -37,7 +37,7 @@ html,body{
 
 .owl-nav button span{
     line-height: 0px;
-    color: #fff;
+    color: black;
     font-size: 50px;
     font-weight: bold;
 }

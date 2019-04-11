@@ -1,8 +1,7 @@
-import { Component, OnInit,Output} from '@angular/core';
-import { Playlist } from './../service/playlist';
-import { EventEmitter } from '@angular/core';
+import { Component, OnInit,Output,Input} from '@angular/core';
 import {MovieplayerService} from '../service/movieplayer.service';
 import {ToasterMsgService} from '../service/toaster-msg.service';
+
 @Component({
   selector: 'app-playlist',
   templateUrl: './playlist.component.html',
@@ -11,45 +10,38 @@ import {ToasterMsgService} from '../service/toaster-msg.service';
 export class PlaylistComponent implements OnInit {
   playlistLog:any;
   errormsg:any
-  @Output() onFilter = new EventEmitter();
-  
+  playLists:any;
+  @Input()viedoList:any;
+
+
+
   constructor(private service:MovieplayerService,public toast:ToasterMsgService) { }
 
   ngOnInit() {
-    // this.service.getAllViedos().subscribe(data=>{
-    //   this.playlistLog=data;
-    //   // console.log(this.playlistLog);
-    // },error => {
-    //   //debugger;
-    //   console.log(error);
-    //   if(error.status == 404){
-    //     this.errormsg=error.statusText;
-    //     this.toast.showMessage(this.errormsg,0);
-    //   }
-    
-    // });
-
+    // debugger;
+    // console.log(viedoList);
     // interceptor call
-    this.service.getAllViedos()
-    .subscribe(
-      data => {
-        // console.log(data);
-        this.playlistLog=data;
-      },
-      err =>{
-        console.log(err)
-        if(err.status == 404){
-          this.errormsg=err.statusText;
-          this.toast.showMessage(this.errormsg,0);
-        }
-      } 
-    );
+    // this.service.getAllViedos()
+    // .subscribe(
+    //   data => {
+    //     // console.log(data);
+    //     this.playlistLog=data;
+    //   },
+    //   err =>{
+    //     console.log(err)
+    //     if(err.status == 404){
+    //       this.errormsg=err.statusText;
+    //       this.toast.showMessage(this.errormsg,0);
+    //     }
+    //   } 
+    // );
 
   }
   changetheViedo(url){
-      // console.log(url);
-      this.onFilter.emit(url);
+    // debugger;
+     // console.log(url);
+      this.service.changeUrl(url);
   }
 
-  myCarouselOptions={items: 4, dots: true, nav: true};
+  myCarouselOptions={items: 4, dots: false, nav: true};
 }
